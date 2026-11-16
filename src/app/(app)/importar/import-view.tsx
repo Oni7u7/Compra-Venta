@@ -81,9 +81,8 @@ export function ImportView({ existingProducts, existingSuppliers }: { existingPr
           toast.error("El archivo no tiene filas");
           return;
         }
-        const headers = (res.meta.fields ?? []).map((h) => h.trim().toLowerCase());
-        const required = TEMPLATES[kind].headers;
-        const missing = required.filter((h) => !headers.some((x) => x.replace(/\s+/g, "_").normalize("NFD").replace(/[̀-ͯ]/g, "") === h));
+        const headers = (res.meta.fields ?? []).map(normalizeHeader);
+        const missing = TEMPLATES[kind].headers.filter((h) => !headers.includes(h));
         if (missing.length > 0) {
           toast.error(`Faltan columnas: ${missing.join(", ")}. Descarga la plantilla de ${kind}.`);
         }
