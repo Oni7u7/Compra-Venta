@@ -92,7 +92,7 @@ export async function importRows(
   for (const p of ["/", "/registros", "/benchmark", "/margenes"]) revalidatePath(p);
   return {
     ok: true,
-    message: `${data.length} ${kind} importadas`,
+    message: `${data.length} ${data.length === 1 ? kind.slice(0, -1) + " importada" : kind + " importadas"}`,
     data: { inserted: data.length, newProducts: missingProducts.length, newSuppliers: missingSuppliers.length },
   };
 }

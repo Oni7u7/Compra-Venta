@@ -120,8 +120,8 @@ export default async function BenchmarkPage({ searchParams }: PageProps<"/benchm
           <div className="space-y-1">
             <CardTitle>Comparativa por producto</CardTitle>
             <CardDescription>
-              {selected.proveedores} proveedores · el más barato cuesta {formatPct(Number(selected.peor.pct_vs_mejor))} menos
-              que el más caro
+              {selected.proveedores} {selected.proveedores === 1 ? "proveedor" : "proveedores"} · el más caro cuesta{" "}
+              {formatPct(Number(selected.peor.pct_vs_mejor))} más que el más barato
             </CardDescription>
           </div>
           <ProductPicker

@@ -71,9 +71,9 @@ export function TopProductsChart({ data }: { data: { nombre: string; utilidad: n
             tickLine={false}
             axisLine={false}
             fontSize={11}
-            width={130}
+            width={140}
             stroke="var(--muted-foreground)"
-            tickFormatter={(v: string) => (v.length > 20 ? `${v.slice(0, 19)}…` : v)}
+            tickFormatter={(v: string) => (v.length > 18 ? `${v.slice(0, 17)}…` : v)}
           />
           <Tooltip cursor={{ fill: "var(--muted)" }} contentStyle={tooltipStyle} formatter={(v) => [formatMXN(Number(v)), "Utilidad"]} />
           <Bar dataKey="utilidad" radius={[0, 6, 6, 0]} maxBarSize={22}>

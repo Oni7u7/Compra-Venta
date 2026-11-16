@@ -92,7 +92,8 @@ export default async function DashboardPage({ searchParams }: PageProps<"/">) {
           <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
             {kpis.map(({ label, value, hint, icon: Icon, change, invert, points }) => {
               const up = (change ?? 0) >= 0;
-              const good = invert ? !up : up;
+              const good = up;
+              const neutral = Boolean(invert);
               return (
                 <Card key={label}>
                   <CardHeader className="flex flex-row items-center justify-between gap-2">
@@ -106,7 +107,11 @@ export default async function DashboardPage({ searchParams }: PageProps<"/">) {
                         <span
                           className={cn(
                             "inline-flex items-center gap-0.5 font-medium tabular-nums",
-                            good ? "text-emerald-600 dark:text-emerald-400" : "text-rose-600 dark:text-rose-400",
+                            neutral
+                              ? "text-muted-foreground"
+                              : good
+                                ? "text-emerald-600 dark:text-emerald-400"
+                                : "text-rose-600 dark:text-rose-400",
                           )}
                         >
                           {up ? <ArrowUpRightIcon className="size-3" /> : <ArrowDownRightIcon className="size-3" />}
