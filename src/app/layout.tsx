@@ -9,8 +9,8 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: { default: "Inventario POS", template: "%s · Inventario POS" },
-  description: "Inventario y punto de venta para tiendas pequeñas, con Next.js y Supabase.",
+  title: { default: "CompraVenta Insights", template: "%s · CompraVenta Insights" },
+  description: "Benchmarking de compras, ventas y proveedores: márgenes, utilidad y mejor precio por producto.",
 };
 
 export const viewport: Viewport = {

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { BarChart3Icon, PackageIcon, ShieldCheckIcon, StoreIcon } from "lucide-react";
+import { ArrowDownUpIcon, BadgePercentIcon, FileSpreadsheetIcon, TrendingUpIcon, TrophyIcon } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { LoginForm } from "./login-form";
 
 export const metadata: Metadata = { title: "Iniciar sesión" };
 
 const features = [
-  { icon: PackageIcon, text: "Productos, categorías y proveedores con stock en tiempo real" },
-  { icon: StoreIcon, text: "Punto de venta que descuenta inventario al cobrar" },
-  { icon: BarChart3Icon, text: "Dashboard con valor del inventario y ventas del día" },
-  { icon: ShieldCheckIcon, text: "Roles admin/vendedor protegidos con RLS en Postgres" },
+  { icon: TrophyIcon, text: "Ranking de proveedores: quién te vende más barato cada producto" },
+  { icon: BadgePercentIcon, text: "Margen y utilidad real por producto, con alertas de margen bajo" },
+  { icon: ArrowDownUpIcon, text: "Ventas vs compras por mes y ventas por canal" },
+  { icon: FileSpreadsheetIcon, text: "Importa tus compras y ventas desde CSV" },
 ];
 
 export default async function LoginPage({ searchParams }: PageProps<"/login">) {
@@ -23,11 +23,11 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
           className="pointer-events-none absolute -top-24 -right-24 size-96 rounded-full bg-white/10 blur-3xl"
         />
         <div className="flex items-center gap-2 text-lg font-semibold">
-          <StoreIcon className="size-6" /> Inventario POS
+          <TrendingUpIcon className="size-6" /> CompraVenta Insights
         </div>
         <div className="relative max-w-md space-y-6">
           <h2 className="text-3xl leading-tight font-semibold text-balance">
-            Controla tu tienda: inventario, ventas y proveedores en un solo lugar.
+            Descubre dónde ganas, dónde pierdes y a quién conviene comprarle.
           </h2>
           <ul className="space-y-3">
             {features.map(({ icon: Icon, text }) => (
@@ -43,7 +43,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
       <section className="flex flex-col p-4 sm:p-6">
         <div className="flex justify-between lg:justify-end">
           <div className="flex items-center gap-2 font-semibold lg:hidden">
-            <StoreIcon className="size-5 text-primary" /> Inventario POS
+            <TrendingUpIcon className="size-5 text-primary" /> CompraVenta Insights
           </div>
           <ThemeToggle />
         </div>
@@ -58,7 +58,7 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
             <LoginForm next={typeof next === "string" ? next : undefined} />
             <p className="rounded-lg border border-dashed p-3 text-xs text-muted-foreground">
               Demo: <span className="font-mono">demo@portfolio.dev</span> /{" "}
-              <span className="font-mono">Demo1234!</span> (rol admin)
+              <span className="font-mono">Demo1234!</span>
             </p>
           </div>
         </div>
